@@ -3,12 +3,19 @@ const Schema = mongoose.Schema;
 
 const listingSchema = new Schema({
     title : {type : String,
-        require:true
+        required:true
     },
     description : String,
-    image :{type : String,
-        set : (v)=> v=== "" ? "https://unsplash.com/photos/person-in-swimming-pool-during-daytime-rlwE8f8anOc" : v
+     image: {
+    filename: {
+      type: String,
+      default: "listingimage"
     },
+    url: {
+      type: String,
+      default: "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b"
+    }
+  },
     price : Number,
     location : String,
     country : String
